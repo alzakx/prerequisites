@@ -1,21 +1,35 @@
-﻿function main() {
-    var result = document.querySelector('#result'),
-        courses = '';
+﻿var noPrerequisites = [],
+    withPrerequisites = [];
+
+function main(pCourses) {
+    var courses = {},
+        output = '',
+        result = document.querySelector('#result');
+        
 
 
-
-    result.innerText = courses;
+    result.innerText = output;
     return '';
 }
 
 function findPrerequisites() {
-
+    return '';
 }
 
 function splitCourses(pCourses) {
 
-    return {
-        noPrerequisites: [],
-        withPrerequisites: []
+    if (pCourses.length === 0) {
+        return;
     }
+
+    var course = pCourses[0].split(':')[0],
+        prerequisite = pCourses[0].split(':')[1];
+
+    if (prerequisite === '') {
+        noPrerequisites.push(course);
+    } else {
+        withPrerequisites.push(course);
+    }
+
+    splitCourses(pCourses.slice(1));
 }
