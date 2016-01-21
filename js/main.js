@@ -1,24 +1,27 @@
 ﻿var noPrerequisites = [],
-    withPrerequisites = [];
+    withPrerequisites = [],
+    sortedCourses = [];
 
-function main(pCourses) {
-    var courses = {},
-        output = '',
-        result = document.querySelector('#result');
-        
+function findPrerequisites(pCourses) {
 
+    if (pCourses.length === 0) {
+        return;
+    }
 
-    result.innerText = output;
-    return '';
-}
+    var course = pCourses[0].split(':')[0],
+        prerequisite = pCourses[0].split(':')[1];
 
-function findPrerequisites() {
-    return '';
+    if (noPrerequisites.indexOf(course) === -1 && noPrerequisites.indexOf(prerequisite) > -1) {
+        sortedCourses.push(course);
+    }
+
+    findPrerequisites(pCourses.slice(1));
 }
 
 function splitCourses(pCourses) {
 
     if (pCourses.length === 0) {
+        sortedCourses = noPrerequisites;
         return;
     }
 
@@ -32,4 +35,13 @@ function splitCourses(pCourses) {
     }
 
     splitCourses(pCourses.slice(1));
+}
+
+function main(pCourses) {
+    var result = document.querySelector('#result');
+
+    splitCourses(pCourses);
+    findPrerequisites(pCourses);
+
+    result.innerText = 'List: ' + pCourses.toString() + '\n\n' + 'Result: ' + sortedCourses.toString();
 }

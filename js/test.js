@@ -1,4 +1,8 @@
 ﻿QUnit.test('splitCourses test', function (assert) {
+    noPrerequisites = [],
+    withPrerequisites = [],
+    sortedCourses = [];
+
     splitCourses(['1:', '2:1', '3:2']);
     
     var result = {
@@ -14,5 +18,19 @@
 });
 
 QUnit.test('findPrerequisites test', function (assert) {
-    assert.ok(findPrerequisites() == '', '');
+    noPrerequisites = [],
+    withPrerequisites = [],
+    sortedCourses = [];
+
+    splitCourses(['1:', '2:1', '3:2']);
+    findPrerequisites(['1:', '2:1', '3:2']);
+
+    var result = {
+        "sortedCourses": sortedCourses
+    },
+    expected = {
+        "sortedCourses": ['1', '2', '3']      
+    };
+
+    assert.ok(JSON.stringify(result) == JSON.stringify(expected), '');
 });
