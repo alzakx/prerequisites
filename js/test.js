@@ -1,3 +1,13 @@
-﻿QUnit.test('findPrerequisites test', function (assert) {
-    assert.ok(main() == '', 'Passed!');
+﻿QUnit.test('splitCourses test', function (assert) {
+    var result = splitCourses(),
+        expected = {
+        noPrerequisites: [],
+        withPrerequisites: []
+    };
+
+    assert.ok(JSON.stringify(result) == JSON.stringify(expected), '');
+});
+
+QUnit.test('findPrerequisites test', function (assert) {
+
 });
