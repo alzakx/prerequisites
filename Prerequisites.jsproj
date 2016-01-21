@@ -55,13 +55,12 @@
     <Content Include="index.html" />
     <Content Include="js\main.js" />
     <Content Include="js\test.js" />
+    <Content Include="lib\qunit-1.20.0.css" />
+    <Content Include="lib\qunit-1.20.0.js" />
     <Content Include="test.html" />
   </ItemGroup>
   <ItemGroup>
     <SDKReference Include="Microsoft.WinJS.2.0, Version=1.0" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="lib\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\$(WMSJSProjectDirectory)\Microsoft.VisualStudio.$(WMSJSProject).targets" />
   <!-- To modify your build process, add your task inside one of the targets below then uncomment
